@@ -1,0 +1,28 @@
+<div fxLayout="row" fxLayoutAlign="center start">
+
+  <mat-card fxFlex="40">
+
+    <mat-card-header>
+      <a mat-card-avatar class="pokemon-header-image" routerLink="/pokey-home"></a>
+      <mat-card-title>Smart Contract with Angular and NgRx</mat-card-title>
+      <mat-card-subtitle>Pokemon {{ pokemonName }} on Ethereum blockchain</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-actions fxLayout="row" fxLayoutAlign="center start">
+
+            <a fxFlexAlign="center" mat-stroked-button color="warn"
+              routerLink="/eth-portal"
+              routerLinkActive="active-link"
+              routerLinkActiveOptions="{ exact: true }"
+           >
+                  Ethereum Blockchain Portal
+            </a>
+
+    </mat-card-actions>
+
+
+    <mat-card-content>
+      <router-outlet></router-outlet>
+    </mat-card-content>
+  </mat-card>
+</div>

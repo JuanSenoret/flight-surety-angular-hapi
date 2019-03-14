@@ -1,0 +1,12 @@
+# Mac folders
+.idea
+.DS_Store
+
+# truffle files/folders
+smart-contracts/truffle.js
+smart-contracts/build/
+
+# Dependency directories
+smart-contracts/node_modules
+client/node_modules
+server/node_modules

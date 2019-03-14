@@ -1,0 +1,31 @@
+
+
+<h2 class="mat-h2">Groundon Quick Moves</h2>
+
+Blockchain stored attack:
+<mat-chip selected color='warn'>
+    {{attack$ | async}}
+</mat-chip>
+
+
+<form [formGroup]="frmGroup" class='margin-top--20'>
+
+    <div fxLayout="row">
+
+        <mat-form-field color='accent' fxFlex="40">
+            <mat-select  placeholder="Select Quick Move" formControlName="attack">
+                <mat-option *ngFor="let move of quickMoves" [value]="move">
+                    {{move}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <div fxFlex></div>
+    </div>
+
+    <div fxLayout="row">
+        <div fxFlex="80"></div>
+        <button mat-flat-button color="warn" class='margin-top--45' (click)="onConfirm()" fxFlex>Confirm</button>
+    </div>
+
+
+</form>
