@@ -16,10 +16,17 @@ module.exports = function(deployer) {
                             appAddress: FlightSuretyApp.address
                         }
                     }
-                    //fs.writeFileSync(__dirname + '/../../src/dapp/config.json',JSON.stringify(config, null, '\t'), 'utf-8');
+                    // Store in server the contract addresses and url to connect to the network
                     fs.writeFileSync(__dirname + '/../../server/src/config/config.json',JSON.stringify(config, null, '\t'), 'utf-8');
-                    //fs.writeFileSync(__dirname + '/../src/client-new/config.json',JSON.stringify(config, null, '\t'), 'utf-8');
-                    //fs.writeFileSync(__dirname + '/../src/server-hapi/src/config/config.json',JSON.stringify(config, null, '\t'), 'utf-8');
+                    // Store in client the contracts ABIs and addresses
+                    fs.copyFile(__dirname + '/../build/contracts/FlightSuretyApp.json', __dirname + '/../../client/src/assets/contract/FlightSuretyApp.json', (error) => {
+                        if (error) throw error;
+                        console.log('File FlightSuretyApp.json was copied to destination');
+                    });
+                    fs.copyFile(__dirname + '/../build/contracts/FlightSuretyData.json', __dirname + '/../../client/src/assets/contract/FlightSuretyData.json', (error) => {
+                        if (error) throw error;
+                        console.log('File FlightSuretyData.json was copied to destination');
+                    });
                 });
     });
 }

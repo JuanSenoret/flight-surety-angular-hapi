@@ -1,6 +1,7 @@
 # Mac folders
 .idea
 .DS_Store
+.vscode/
 
 # truffle files/folders
 smart-contracts/truffle.js
