@@ -4,7 +4,10 @@ import FetchFlightsDetail from './modules/FetchFlightsDetail';
 
 const server = new Hapi.Server({
     host:'localhost',
-    port:5000
+    port:5000,
+    routes: { 
+        cors: true
+    }
 });
 
 const init = new Initialization();

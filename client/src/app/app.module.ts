@@ -25,6 +25,8 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule } from '@angular/material';
 import { PassengerPageComponent } from './passenger-page/passenger-page.component';
 import { OraclePageComponent } from './oracle-page/oracle-page.component';
+import { FlightSuretyService } from './services/flight-surety-server.service';
+import { EthereumService } from './services/ethereum.service';
 
 
 @NgModule({
@@ -68,7 +70,7 @@ import { OraclePageComponent } from './oracle-page/oracle-page.component';
     MatCardModule,
 
   ],
-  providers: [],
+  providers: [FlightSuretyService, EthereumService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
