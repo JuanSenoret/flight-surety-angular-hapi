@@ -188,7 +188,7 @@ contract FlightSuretyData is Ownable {
     * @dev Modifier to check if a flight already exist in database
     */
     modifier requireExistFlight(bytes32 code) {
-        require(flights[code].isRegistered, "Flight already exist in the database");
+        require(flights[code].isRegistered, "Flight doesn't exist in the database");
         _;
     }
 
@@ -700,13 +700,14 @@ contract FlightSuretyData is Ownable {
         requireIsCallerAuthorized()
         requireIsOperational()
         requireExistFlight(flightCode)
-        returns(bytes32, string memory, bytes32, bytes32)
+        returns(bytes32, string memory, bytes32, bytes32, address)
     {
         return (
             flights[flightCode].code,
             airlines[flights[flightCode].airline].name,
             flights[flightCode].departure,
-            flights[flightCode].arrival
+            flights[flightCode].arrival,
+            flights[flightCode].airline
         );
     }
 

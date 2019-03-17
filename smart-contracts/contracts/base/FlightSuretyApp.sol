@@ -260,14 +260,15 @@ contract FlightSuretyApp is Ownable {
         external
         view
         requireIsOperational()
-        returns(bytes32, string memory, bytes32, bytes32)
+        returns(bytes32, string memory, bytes32, bytes32, address)
     {
-        (bytes32 code, string memory airlineName, bytes32 departure, bytes32 arrival) = flightSuretyData.fetchRegisteredFlightInfoByCode(flightCode);
+        (bytes32 code, string memory airlineName, bytes32 departure, bytes32 arrival, address airline) = flightSuretyData.fetchRegisteredFlightInfoByCode(flightCode);
         return (
             code,
             airlineName,
             departure,
-            arrival
+            arrival,
+            airline
         );
     }
 
@@ -327,27 +328,16 @@ contract FlightSuretyApp is Ownable {
     */  
     function processFlightStatus
     (
-        uint8 index,
-        address airline,
         bytes32 flight,
-        uint256 timestamp,
         uint8 statusCode
     )
         internal
         requireIsOperational()
     {
-        bytes32 key = keccak256(abi.encodePacked(index, airline, flight, timestamp));
-        // Close the response in order to handel only once
-        oracleResponses[key].isOpen = false;
-        if (statusCode == STATUS_CODE_UNKNOWN) {
-            // Reopen again the request for response
-            oracleResponses[key].isOpen = true;
-        } else {
-            // Fetch passengers array
-            address[] memory passengersList = flightSuretyData.fetchRegisteredPassengers();
-            for (uint256 paxIndex = 0; paxIndex < passengersList.length; paxIndex = paxIndex.add(1)) {
-                flightSuretyData.creditInsurees (passengersList[paxIndex], flight, statusCode);
-            }
+        // Fetch passengers array
+        address[] memory passengersList = flightSuretyData.fetchRegisteredPassengers();
+        for (uint256 paxIndex = 0; paxIndex < passengersList.length; paxIndex = paxIndex.add(1)) {
+            flightSuretyData.creditInsurees (passengersList[paxIndex], flight, statusCode);
         }
     }
 
@@ -413,7 +403,7 @@ contract FlightSuretyApp is Ownable {
     uint256 public constant REGISTRATION_FEE = 1 ether;
 
     // Number of oracles that must respond for valid status
-    uint256 private constant MIN_RESPONSES = 2;
+    uint256 private constant MIN_RESPONSES = 3;
 
 
     struct Oracle {
@@ -511,7 +501,10 @@ contract FlightSuretyApp is Ownable {
             emit FlightStatusInfo(airline, flight, timestamp, statusCode);
 
             // Handle flight status as appropriate
-            processFlightStatus(index, airline, flight, timestamp, statusCode);
+            processFlightStatus(flight, statusCode);
+
+            // Close the response in order to handel only once
+            oracleResponses[key].isOpen = false;
         }
     }
 
@@ -591,7 +584,7 @@ contract FlightSuretyData {
     function registerFlight (bytes32 code, uint256 updatedTimestamp, address airline, bytes32, bytes32) external returns (bytes32, address, uint8);
     function buyInsurance (address passenger, uint256 amountPaid, bytes32 flightCode) external payable returns (address, bytes32, uint8);
     function fetchRegisteredFlightsCodes () external view returns(bytes32[] memory);
-    function fetchRegisteredFlightInfoByCode (bytes32 flightCode) external view returns (bytes32, string memory, bytes32, bytes32);
+    function fetchRegisteredFlightInfoByCode (bytes32 flightCode) external view returns (bytes32, string memory, bytes32, bytes32, address);
     function fetchActiveInsurancesKeysByPassenger (address passenger) external view returns(bytes32[] memory);
     function fetchRegisteredPassengers () external view returns(address[] memory);
     function fetchInsuranceInfoByPassengerAndCode (address passenger, bytes32 flightCode) external view returns(bytes32, uint256, uint8);

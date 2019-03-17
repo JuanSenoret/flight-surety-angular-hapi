@@ -1,7 +1,55 @@
 .example-card {
   max-width: 400px;
 }
-.example-header-image {
-  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+
+.lufthansa-image {
+  background-image: url('../../assets/img/lufthansa.jpg');
   background-size: cover;
+}
+
+.klm-image {
+  background-image: url('../../assets/img/klm.jpg');
+  background-size: cover;
+}
+
+.custom-content{
+  padding-top: 1rem;
+  padding-left: 1rem;
+}
+
+.custom-button {
+  height: 45px !important;
+  width: 120px !important;
+}
+
+.example-container {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+}
+
+td.mat-column-button {
+  width: 180px;
+  padding-left: 16px;
+  padding-top: 12px;
+}
+
+th.mat-column-code, td.mat-column-code {
+  padding-left: 8px;
+}
+
+th.mat-column-departure, td.mat-column-departure {
+  padding-left: 16px;
+}
+
+.mat-table-sticky:first-child {
+  border-right: 1px solid #e0e0e0;
+}
+
+.mat-table-sticky:last-child {
+  border-left: 1px solid #e0e0e0;
 }

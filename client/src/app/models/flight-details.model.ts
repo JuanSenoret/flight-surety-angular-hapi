@@ -1,4 +1,4 @@
-export interface FlightDetail {
+export interface FlightDetails {
   flightCode: string;
   airlineName: string;
   departure: string;

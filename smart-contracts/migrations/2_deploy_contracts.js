@@ -8,7 +8,7 @@ module.exports = function(deployer) {
     deployer.deploy(FlightSuretyData)
     .then(() => {
         return deployer.deploy(FlightSuretyApp, FlightSuretyData.address)
-                .then(() => {
+                .then(async () => {
                     let config = {
                         localhost: {
                             url: 'http://localhost:7545',
@@ -17,16 +17,10 @@ module.exports = function(deployer) {
                         }
                     }
                     // Store in server the contract addresses and url to connect to the network
-                    fs.writeFileSync(__dirname + '/../../server/src/config/config.json',JSON.stringify(config, null, '\t'), 'utf-8');
+                    await fs.writeFileSync(__dirname + '/../../server/src/config/config.json',JSON.stringify(config, null, '\t'), 'utf-8');
                     // Store in client the contracts ABIs and addresses
-                    fs.copyFile(__dirname + '/../build/contracts/FlightSuretyApp.json', __dirname + '/../../client/src/assets/contract/FlightSuretyApp.json', (error) => {
-                        if (error) throw error;
-                        console.log('File FlightSuretyApp.json was copied to destination');
-                    });
-                    fs.copyFile(__dirname + '/../build/contracts/FlightSuretyData.json', __dirname + '/../../client/src/assets/contract/FlightSuretyData.json', (error) => {
-                        if (error) throw error;
-                        console.log('File FlightSuretyData.json was copied to destination');
-                    });
+                    await fs.writeFileSync(__dirname + '/../../client/src/assets/contract/FlightSuretyApp.json',JSON.stringify(FlightSuretyApp, null, '\t'), 'utf-8');
+                    await fs.writeFileSync(__dirname + '/../../client/src/assets/contract/FlightSuretyData.json',JSON.stringify(FlightSuretyData, null, '\t'), 'utf-8');
                 });
     });
 }

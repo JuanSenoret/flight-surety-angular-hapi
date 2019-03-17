@@ -413,7 +413,7 @@ contract('Flight Surety Tests', async (accounts) => {
             config.web3.utils.asciiToHex(config.flight2Airline2CodeArrival),
             {from: config.airline2});
         // Register oracles
-        console.log('Oracles registraion');
+        console.log('Oracles registration');
         for (let a=1; a<config.TEST_ORACLES_COUNT; a++) {
             await config.flightSuretyApp.registerOracle({ from: accounts[a], value: fee });
             result = await config.flightSuretyApp.getMyIndexes.call({from: accounts[a]});
@@ -491,7 +491,7 @@ contract('Flight Surety Tests', async (accounts) => {
               }
               catch(e) {
                 // Enable this when debugging
-                //console.log(`\nIndex Oracle response not match: Oracle number ${a} | index: ${oracleIndexes[idx]} submit request index ${submitRequestIndex} | flight ${config.flight1Airline2Code} | timestamp: ${timestamp}`);
+                console.log(`\nIndex Oracle response not match: Oracle number ${a} | index: ${oracleIndexes[idx]} submit request index ${submitRequestIndex} | flight ${config.flight1Airline2Code} | timestamp: ${timestamp}`);
                 //console.log(`\nError message: ${e}`);
               }
             }

@@ -23,10 +23,13 @@ import { PokemonComponent} from './components/pokemon/pokemon.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule } from '@angular/material';
+import { FormsModule } from '@angular/forms';
 import { PassengerPageComponent } from './passenger-page/passenger-page.component';
 import { OraclePageComponent } from './oracle-page/oracle-page.component';
 import { FlightSuretyService } from './services/flight-surety-server.service';
 import { EthereumService } from './services/ethereum.service';
+import { SnackbarHomeComponent } from './snackbar/snackbar-home/snackbar-home.component';
+import { MyInsurancesPageComponent } from './my-insurances-page/my-insurances-page.component';
 
 
 @NgModule({
@@ -36,7 +39,9 @@ import { EthereumService } from './services/ethereum.service';
     PokemonComponent,
     SideNavComponent,
     PassengerPageComponent,
-    OraclePageComponent
+    OraclePageComponent,
+    SnackbarHomeComponent,
+    MyInsurancesPageComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +50,7 @@ import { EthereumService } from './services/ethereum.service';
     HttpClientModule,
     MaterialModule,
     FlexLayoutModule,
+    FormsModule,
 
     StoreModule.forRoot(reducers, { metaReducers }),
     EffectsModule.forRoot([]),
@@ -69,6 +75,9 @@ import { EthereumService } from './services/ethereum.service';
     MatListModule,
     MatCardModule,
 
+  ],
+  entryComponents: [
+    SnackbarHomeComponent,
   ],
   providers: [FlightSuretyService, EthereumService],
   bootstrap: [AppComponent]

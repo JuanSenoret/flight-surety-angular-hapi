@@ -13,4 +13,8 @@ export class FlightSuretyService {
   getFlightDetails() {
     return this.httpClient.get(this.baseUrl + 'flightsDetails');
   }
+
+  submitOracleActivity(flightCode: string, status: string) {
+    return this.httpClient.get(this.baseUrl + `oracles-trigger:${flightCode},${status}`);
+  }
 }

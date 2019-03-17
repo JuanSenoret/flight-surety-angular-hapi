@@ -1,6 +1,7 @@
 import Hapi from 'hapi';
 import Initialization from './modules/Initialization';
-import FetchFlightsDetail from './modules/FetchFlightsDetail';
+import FetchFlightsDetails from './modules/FetchFlightsDetails';
+import Oracles from './modules/Oracles';
 
 const server = new Hapi.Server({
     host:'localhost',
@@ -13,19 +14,33 @@ const server = new Hapi.Server({
 const init = new Initialization();
 init.start();
 
-// Endpoint
-server.route( {
+// Endpoint fetch registered flights details
+server.route({
     method: 'GET',
     path: '/flightsDetails',
-    handler: async ( request, h ) => {
-        const fetchFlightsDetail = new FetchFlightsDetail();
-        const flightsDetailResponse = await fetchFlightsDetail.getFlightsDetails();
+    handler: async (request, h) => {
+        const fetchFlightsDetails = new FetchFlightsDetails();
+        const flightsDetailResponse = await fetchFlightsDetails.getFlightsDetails();
         const response = h.response(flightsDetailResponse);
         response.code(flightsDetailResponse.code);
         response.header('Content-Type', 'application/json; charset=utf-8');
         return response;
     }
-} );
+});
+
+// Endpoint fetch registered insurances details by passenger
+server.route({
+    method: 'GET',
+    path: '/oracles-trigger:{flightCode},{status}',
+    handler: async (request, h) => {
+        const oracles = new Oracles();
+        const oraclesResponse = await oracles.run(request.params.flightCode, request.params.status);
+        const response = h.response(oraclesResponse);
+        response.code(oraclesResponse.code);
+        response.header('Content-Type', 'application/json; charset=utf-8');
+        return response;
+    }
+});
 
 server.start((err) => {
     if( err ) {
