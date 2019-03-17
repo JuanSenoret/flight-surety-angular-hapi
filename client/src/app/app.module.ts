@@ -18,13 +18,11 @@ import { environment } from '../environments/environment'; // Angular CLI enviro
 
 
 import { AppComponent } from './app.component';
-import { HomePanelComponent } from './components/home-panel/home-panel.component';
-import { PokemonComponent} from './components/pokemon/pokemon.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
-import { PassengerPageComponent } from './passenger-page/passenger-page.component';
+import { FlightsPageComponent } from './flights-page/flights-page.component';
 import { OraclePageComponent } from './oracle-page/oracle-page.component';
 import { FlightSuretyService } from './services/flight-surety-server.service';
 import { EthereumService } from './services/ethereum.service';
@@ -35,10 +33,8 @@ import { MyInsurancesPageComponent } from './my-insurances-page/my-insurances-pa
 @NgModule({
   declarations: [
     AppComponent,
-    HomePanelComponent,
-    PokemonComponent,
     SideNavComponent,
-    PassengerPageComponent,
+    FlightsPageComponent,
     OraclePageComponent,
     SnackbarHomeComponent,
     MyInsurancesPageComponent

@@ -11,11 +11,11 @@ import { SnackbarHomeComponent } from '../snackbar/snackbar-home/snackbar-home.c
 import {MatSnackBar, MatSnackBarConfig} from '@angular/material';
 
 @Component({
-  selector: 'app-passenger-page',
-  templateUrl: './passenger-page.component.html',
-  styleUrls: ['./passenger-page.component.scss']
+  selector: 'app-flights-page',
+  templateUrl: './flights-page.component.html',
+  styleUrls: ['./flights-page.component.scss']
 })
-export class PassengerPageComponent implements OnInit {
+export class FlightsPageComponent implements OnInit {
 
   private flightDetailsByAirlines: any[];
   private airlines: string[];
