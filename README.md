@@ -10,7 +10,7 @@ You will find the smart contract under "smart-contracts" folder. In this folder 
 - Server:
 Under "server" folder you will find the server implementation based on "hapi" framework.
 
--Client:
+- Client:
 In the folder "client" you will find a client implentation built using Angular 7
 
 
