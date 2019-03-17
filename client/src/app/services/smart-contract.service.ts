@@ -1,7 +1,6 @@
 import { InjectionToken} from '@angular/core';
 import Web3 from 'web3';
 import TruffleContract from 'truffle-contract';
-import ContractAbi from '../../assets/contract/PockemonAttack.json';
 import FlightSuretyAppContractAbi from '../../assets/contract/FlightSuretyApp.json';
 import FlightSuretyDataContractAbi from '../../assets/contract/FlightSuretyData.json';
 
@@ -28,11 +27,5 @@ export const FlightSuretyAppSmartContract = new InjectionToken<TruffleContract>(
 export const FlightSuretyDataSmartContract = new InjectionToken<TruffleContract>('smartContract', {
   providedIn: 'root',
   factory: () =>  TruffleContract(FlightSuretyDataContractAbi),
-
-});
-
-export const SmartContract = new InjectionToken<TruffleContract>('smartContract', {
-  providedIn: 'root',
-  factory: () =>  TruffleContract(ContractAbi),
 
 });
