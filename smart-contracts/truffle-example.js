@@ -1,5 +1,5 @@
 const HDWalletProvider = require("truffle-hdwallet-provider");
-const mnemonicLocal = "candy maple cake sugar pudding cream honey rich smooth crumble sweet treat";
+const mnemonicLocal = "candy maple coke sugar pudding cream honey rich smooth crumble salt treat";
 const MNEMONIC = "your mnemonic";
 const API_KEY = "YOUR INFURA API KEY";
 

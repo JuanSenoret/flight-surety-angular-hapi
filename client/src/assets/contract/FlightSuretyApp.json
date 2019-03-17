@@ -34276,14 +34276,250 @@
 	},
 	"networks": {
 		"5777": {
-			"events": {},
+			"events": {
+				"0x5c8d63664d2fcb80124cc2336799bcf0be841fa53a6c6054e6e397222425d56f": {
+					"anonymous": false,
+					"inputs": [
+						{
+							"indexed": false,
+							"name": "airlineAdress",
+							"type": "address"
+						},
+						{
+							"indexed": false,
+							"name": "fund",
+							"type": "uint256"
+						}
+					],
+					"name": "AirlineSubmittedFund",
+					"type": "event",
+					"signature": "0x5c8d63664d2fcb80124cc2336799bcf0be841fa53a6c6054e6e397222425d56f"
+				},
+				"0x57e6365ca0d5671f421a334f2d64fd3396faf131dbabf85533feea8c9d46c164": {
+					"anonymous": false,
+					"inputs": [
+						{
+							"indexed": false,
+							"name": "state",
+							"type": "uint8"
+						},
+						{
+							"indexed": false,
+							"name": "airlinesRegistered",
+							"type": "uint256"
+						}
+					],
+					"name": "AirlineRegistration",
+					"type": "event",
+					"signature": "0x57e6365ca0d5671f421a334f2d64fd3396faf131dbabf85533feea8c9d46c164"
+				},
+				"0x2e335ae65869eda5ae40677cbe2067ce4cebe5afea61b76cc260970402d72129": {
+					"anonymous": false,
+					"inputs": [
+						{
+							"indexed": false,
+							"name": "airlineEmitionVoteAddress",
+							"type": "address"
+						},
+						{
+							"indexed": false,
+							"name": "airlineVotedName",
+							"type": "string"
+						},
+						{
+							"indexed": false,
+							"name": "airlineVotes",
+							"type": "uint256"
+						}
+					],
+					"name": "MultipartyConsensusAirlineRegisterVote",
+					"type": "event",
+					"signature": "0x2e335ae65869eda5ae40677cbe2067ce4cebe5afea61b76cc260970402d72129"
+				},
+				"0x414f963dad0c693d4fa936d56b7dfd7d2c2506e82a64efda601b3fb8d8ccaf20": {
+					"anonymous": false,
+					"inputs": [
+						{
+							"indexed": false,
+							"name": "flightCode",
+							"type": "bytes32"
+						},
+						{
+							"indexed": false,
+							"name": "airline",
+							"type": "address"
+						},
+						{
+							"indexed": false,
+							"name": "status",
+							"type": "uint8"
+						}
+					],
+					"name": "FlightRegistered",
+					"type": "event",
+					"signature": "0x414f963dad0c693d4fa936d56b7dfd7d2c2506e82a64efda601b3fb8d8ccaf20"
+				},
+				"0xbc610a15be7a569b2502776fe8fbcb93efaae18f429b6fc3dd252c2cddeefc6d": {
+					"anonymous": false,
+					"inputs": [
+						{
+							"indexed": false,
+							"name": "passenger",
+							"type": "address"
+						},
+						{
+							"indexed": false,
+							"name": "flightCode",
+							"type": "bytes32"
+						},
+						{
+							"indexed": false,
+							"name": "status",
+							"type": "uint8"
+						}
+					],
+					"name": "BoughtInsurance",
+					"type": "event",
+					"signature": "0xbc610a15be7a569b2502776fe8fbcb93efaae18f429b6fc3dd252c2cddeefc6d"
+				},
+				"0xb4e070083fb8566e5085b63c065ea8903bdf9632c56fd6a16d2c369eb1a947f6": {
+					"anonymous": false,
+					"inputs": [
+						{
+							"indexed": false,
+							"name": "passenger",
+							"type": "address"
+						},
+						{
+							"indexed": false,
+							"name": "code",
+							"type": "bytes32"
+						},
+						{
+							"indexed": false,
+							"name": "amount",
+							"type": "uint256"
+						},
+						{
+							"indexed": false,
+							"name": "status",
+							"type": "uint8"
+						}
+					],
+					"name": "PassengerWithdrawStatus",
+					"type": "event",
+					"signature": "0xb4e070083fb8566e5085b63c065ea8903bdf9632c56fd6a16d2c369eb1a947f6"
+				},
+				"0x2c01e4c91c66eba4e28833dfd0d7db5b12558c3773d8fe5ab88cbaafb423056e": {
+					"anonymous": false,
+					"inputs": [
+						{
+							"indexed": false,
+							"name": "airline",
+							"type": "address"
+						},
+						{
+							"indexed": false,
+							"name": "flight",
+							"type": "bytes32"
+						},
+						{
+							"indexed": false,
+							"name": "timestamp",
+							"type": "uint256"
+						},
+						{
+							"indexed": false,
+							"name": "status",
+							"type": "uint8"
+						}
+					],
+					"name": "FlightStatusInfo",
+					"type": "event",
+					"signature": "0x2c01e4c91c66eba4e28833dfd0d7db5b12558c3773d8fe5ab88cbaafb423056e"
+				},
+				"0x06354a194cc1aa38c93009e264262f1db6b56a5e6dc2be2c7596a94b980c2f85": {
+					"anonymous": false,
+					"inputs": [
+						{
+							"indexed": false,
+							"name": "airline",
+							"type": "address"
+						},
+						{
+							"indexed": false,
+							"name": "flight",
+							"type": "bytes32"
+						},
+						{
+							"indexed": false,
+							"name": "timestamp",
+							"type": "uint256"
+						},
+						{
+							"indexed": false,
+							"name": "status",
+							"type": "uint8"
+						}
+					],
+					"name": "OracleReport",
+					"type": "event",
+					"signature": "0x06354a194cc1aa38c93009e264262f1db6b56a5e6dc2be2c7596a94b980c2f85"
+				},
+				"0x8b9eb22876717bbfb6bc02e9c693f640e54e5eb49e166ece6d6a70a6cc84a34f": {
+					"anonymous": false,
+					"inputs": [
+						{
+							"indexed": false,
+							"name": "index",
+							"type": "uint8"
+						},
+						{
+							"indexed": false,
+							"name": "airline",
+							"type": "address"
+						},
+						{
+							"indexed": false,
+							"name": "flight",
+							"type": "bytes32"
+						},
+						{
+							"indexed": false,
+							"name": "timestamp",
+							"type": "uint256"
+						}
+					],
+					"name": "OracleRequest",
+					"type": "event",
+					"signature": "0x8b9eb22876717bbfb6bc02e9c693f640e54e5eb49e166ece6d6a70a6cc84a34f"
+				},
+				"0x5c486528ec3e3f0ea91181cff8116f02bfa350e03b8b6f12e00765adbb5af85c": {
+					"anonymous": false,
+					"inputs": [
+						{
+							"indexed": true,
+							"name": "oldOwner",
+							"type": "address"
+						},
+						{
+							"indexed": true,
+							"name": "newOwner",
+							"type": "address"
+						}
+					],
+					"name": "TransferOwnership",
+					"type": "event",
+					"signature": "0x5c486528ec3e3f0ea91181cff8116f02bfa350e03b8b6f12e00765adbb5af85c"
+				}
+			},
 			"links": {},
-			"address": "0x294FB93F03eE8f2Bf4aA7D193CA67E4FBf458F09",
-			"transactionHash": "0x913ed86a479b75c132ba4f9190ce0b9427ee0c114e5248ded460c8c693c5880c"
+			"address": "0xF4f1CA31afa46Bd7b263Ad832c539aD6142865C1",
+			"transactionHash": "0x7ddda7c1b0d73f3fe27ac2b151138f9a3ff052d503daf551f11b29003e0e09e3"
 		}
 	},
 	"schemaVersion": "3.0.1",
-	"updatedAt": "2019-03-17T14:42:48.379Z",
+	"updatedAt": "2019-03-17T16:51:51.387Z",
 	"devdoc": {
 		"methods": {
 			"buyInsurance(bytes32)": {

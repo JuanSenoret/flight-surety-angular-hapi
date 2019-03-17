@@ -28831,14 +28831,98 @@
 	},
 	"networks": {
 		"5777": {
-			"events": {},
+			"events": {
+				"0x135d2d0604d838f23aa9bdfeb6d31b80a06d0e86528a14d861c53c31ff64e381": {
+					"anonymous": false,
+					"inputs": [
+						{
+							"indexed": false,
+							"name": "authorizedCaller",
+							"type": "address"
+						}
+					],
+					"name": "AuthorizeContractCaller",
+					"type": "event",
+					"signature": "0x135d2d0604d838f23aa9bdfeb6d31b80a06d0e86528a14d861c53c31ff64e381"
+				},
+				"0xf08105d18efbef9c2d8f7ce50a61ae1a9824e4642cae74f6c1a6eecc76583db4": {
+					"anonymous": false,
+					"inputs": [
+						{
+							"indexed": false,
+							"name": "deauthorizedCaller",
+							"type": "address"
+						}
+					],
+					"name": "DeauthorizeContractCaller",
+					"type": "event",
+					"signature": "0xf08105d18efbef9c2d8f7ce50a61ae1a9824e4642cae74f6c1a6eecc76583db4"
+				},
+				"0x77241a0802411cabeac9a2771f3a69722d44d95f469f35956e64d7e025f09d2e": {
+					"anonymous": false,
+					"inputs": [
+						{
+							"indexed": false,
+							"name": "operationalStatus",
+							"type": "bool"
+						}
+					],
+					"name": "OperatingStatusUpdated",
+					"type": "event",
+					"signature": "0x77241a0802411cabeac9a2771f3a69722d44d95f469f35956e64d7e025f09d2e"
+				},
+				"0x7ac19b2d9b630a272f1f1f3f19171bfe2f203947d670af35e70ab5e7d3adb7bc": {
+					"anonymous": false,
+					"inputs": [
+						{
+							"indexed": false,
+							"name": "newValue",
+							"type": "uint8"
+						}
+					],
+					"name": "MinAirlinesNumberMutipartyConsensusUpdated",
+					"type": "event",
+					"signature": "0x7ac19b2d9b630a272f1f1f3f19171bfe2f203947d670af35e70ab5e7d3adb7bc"
+				},
+				"0x407cc1079f5ac8a914b6241f212223b17e3404442e32c1e8b4f2e68fd3b3a8ed": {
+					"anonymous": false,
+					"inputs": [
+						{
+							"indexed": false,
+							"name": "newValue",
+							"type": "uint256"
+						}
+					],
+					"name": "MinSubmitionFundUpdated",
+					"type": "event",
+					"signature": "0x407cc1079f5ac8a914b6241f212223b17e3404442e32c1e8b4f2e68fd3b3a8ed"
+				},
+				"0x5c486528ec3e3f0ea91181cff8116f02bfa350e03b8b6f12e00765adbb5af85c": {
+					"anonymous": false,
+					"inputs": [
+						{
+							"indexed": true,
+							"name": "oldOwner",
+							"type": "address"
+						},
+						{
+							"indexed": true,
+							"name": "newOwner",
+							"type": "address"
+						}
+					],
+					"name": "TransferOwnership",
+					"type": "event",
+					"signature": "0x5c486528ec3e3f0ea91181cff8116f02bfa350e03b8b6f12e00765adbb5af85c"
+				}
+			},
 			"links": {},
-			"address": "0x27D35ac16b8400f40Ec56d8438FE0f4d25831b89",
-			"transactionHash": "0x9f8cf44f6cfd3f74f44525c8afb7c92a1727d03208098e6cb2891490d91a061d"
+			"address": "0xE2aE942D1dED281bB24B1d74A6d1781081432066",
+			"transactionHash": "0x146d348ef34aa84a60027e091781d4cad3be06f526ed278cad89d093aa5255c5"
 		}
 	},
 	"schemaVersion": "3.0.1",
-	"updatedAt": "2019-03-17T14:42:48.385Z",
+	"updatedAt": "2019-03-17T16:51:51.362Z",
 	"devdoc": {
 		"methods": {
 			"authorizeContractCaller(address)": {
